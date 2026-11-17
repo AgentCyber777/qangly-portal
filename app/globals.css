@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-qangly-dark: #0f172a;
+  --color-qangly-primary: #1e3a8a;
+  --color-qangly-gold: #d4af37;
+  --color-qangly-light: #f8f6f0;
+  --color-qangly-text: #334155;
+}
+
+:root {
+  --background: #f8f6f0;
+  --foreground: #171717;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Кәсіби эффектілер */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+nextjs-portal {
+  display: none !important;
+}
+
+/* 3D анимация үшін перспектива */
+.translate-z-0 { transform: translateZ(0); }
+.translate-z-\[-100px\] { transform: translateZ(-100px); }
+.rotate-x-0 { transform: rotateX(0deg); }
+.rotate-x-90 { transform: rotateX(90deg); }

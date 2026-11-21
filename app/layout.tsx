@@ -3,19 +3,19 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Phone, Mail } from "lucide-react";
+import { Search } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
 import RotatingSlogan from "@/components/RotatingSlogan";
 import CurrentDate from "@/components/CurrentDate";
+import Navbar from "@/components/Navbar"; // Жаңа компонент
 
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "ҚАҢЛЫ — Тарихи-мәдени және ғылыми портал",
-  description:
-    "Қаңлы руының тарихы, шежіресі, тұлғалары және ғылыми зерттеулері",
+  description: "Қаңлы руының тарихы, шежіресі, тұлғалары және ғылыми зерттеулері",
   icons: {
-    icon: "/images/favicon.png", // Браузер табында логотип шығады
+    icon: "/images/favicon.png",
   },
 };
 
@@ -26,32 +26,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kk">
-      <body
-        className={`${inter.className} bg-qangly-light text-gray-800 min-h-screen flex flex-col relative`}
-      >
-        {/* Жоғары ақпараттық жолақ */}
-        <div className="bg-qangly-dark text-gray-300 text-xs py-2 px-4">
+      <body className={`${inter.className} bg-qangly-light text-gray-800 min-h-screen flex flex-col relative`}>
+        
+        {/* Жоғары ақпараттық жолақ (Тек дата қалды) */}
+        <div className="bg-qangly-dark text-gray-300 text-xs py-2 px-4 border-b border-gray-700">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <CurrentDate />
-            <div className="flex gap-6">
-              <span className="flex items-center gap-1">
-                <Phone size={12} /> +7 (777) 000-00-00
-              </span>
-              <span className="flex items-center gap-1">
-                <Mail size={12} /> info@qangly.kz
-              </span>
-            </div>
+            {/* Телефон мен пошта алынып тасталды */}
           </div>
         </div>
 
         {/* Header */}
         <header className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b-4 border-qangly-gold">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            
             {/* Логотип */}
-            <Link
-              href="/"
-              className="flex items-center gap-3 cursor-pointer group"
-            >
+            <Link href="/" className="flex items-center gap-3 cursor-pointer group">
               <div className="w-14 h-14 md:w-16 md:h-16 relative transition-transform group-hover:scale-105">
                 <Image
                   src="/images/logo.png"
@@ -72,8 +62,8 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* Іздеу (Тек үлкен экрандарда) */}
-            <div className="hidden lg:relative lg:w-80">
+            {/* Іздеу (Барлық құрылғыда көрінеді) */}
+            <div className="relative w-full md:w-80">
               <input
                 type="text"
                 placeholder="Порталдан іздеу..."
@@ -83,88 +73,11 @@ export default function RootLayout({
             </div>
           </div>
 
-          {/* Мәзір (Кәсіби, жинақы) */}
-          <nav className="bg-qangly-dark text-white shadow-inner">
-            <div className="max-w-7xl mx-auto px-4 flex overflow-x-auto hide-scrollbar">
-              <ul className="flex text-xs md:text-sm font-semibold whitespace-nowrap py-1">
-                <li>
-                  <Link
-                    href="/"
-                    className="block px-5 py-2 bg-qangly-gold text-qangly-dark rounded-sm font-bold shadow-md hover:bg-yellow-500 transition"
-                  >
-                    Басты бет
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/qangly-turaly"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Қаңлы туралы
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/tarih"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Тарих
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gylym"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Ғылым
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/shezhire"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Шежіре
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/tulgalar"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Тұлғалар
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/kitapkhana"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Кітапхана
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/mediateka"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Медиатека
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/biz-turaly"
-                    className="block px-4 py-2 hover:text-qangly-gold hover:bg-white/5 transition"
-                  >
-                    Біз туралы
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          {/* Жаңа Мәзір */}
+          <Navbar />
         </header>
 
-        {/* Айналып тұратын ұран */}
+        {/* Абайдың сөзі (Тек басты бетте көрінеді) */}
         <RotatingSlogan />
 
         {/* Негізгі мазмұн */}
@@ -182,8 +95,7 @@ export default function RootLayout({
                     fill
                     sizes="48px"
                     style={{
-                      clipPath:
-                        "polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%)",
+                      clipPath: "polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%)",
                     }}
                     className="object-cover scale-125"
                   />
@@ -203,29 +115,10 @@ export default function RootLayout({
                 Бөлімдер
               </h3>
               <ul className="text-sm space-y-2">
-                <li>
-                  <Link href="/tarih" className="hover:text-white transition">
-                    Тарих және археология
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gylym" className="hover:text-white transition">
-                    Ғылыми мақалалар
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/shezhire"
-                    className="hover:text-white transition"
-                  >
-                    Шежіре ағашы
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/balalar" className="hover:text-white transition">
-                    Балалар бөлімі
-                  </Link>
-                </li>
+                <li><Link href="/tarih" className="hover:text-white transition">Тарих және археология</Link></li>
+                <li><Link href="/gylym" className="hover:text-white transition">Ғылыми мақалалар</Link></li>
+                <li><Link href="/shezhire" className="hover:text-white transition">Шежіре ағашы</Link></li>
+                <li><Link href="/balalar" className="hover:text-white transition">Балалар бөлімі</Link></li>
               </ul>
             </div>
             <div>

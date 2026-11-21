@@ -31,7 +31,8 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-[100] group flex items-center justify-center w-14 h-14 rounded-full bg-qangly-dark/80 backdrop-blur-md text-qangly-gold shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 hover:bg-qangly-dark"
+      // Міне, осы жерге cursor-pointer қостық
+      className="cursor-pointer fixed bottom-8 right-8 z-[100] group flex items-center justify-center w-14 h-14 rounded-full bg-qangly-dark/80 backdrop-blur-md text-qangly-gold shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-110 hover:bg-qangly-dark"
     >
       {/* Дөңгелек прогресс сақинасы */}
       <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">

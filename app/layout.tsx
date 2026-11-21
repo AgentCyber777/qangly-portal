@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Қаңлы руының тарихы, шежіресі, тұлғалары және ғылыми зерттеулері",
   icons: {
-    icon: "/images/logo.jpg", // Браузер табында логотип шығады
+    icon: "/images/favicon.png", // Браузер табында логотип шығады
   },
 };
 
@@ -54,7 +54,7 @@ export default function RootLayout({
             >
               <div className="w-14 h-14 md:w-16 md:h-16 relative transition-transform group-hover:scale-105">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/logo.png"
                   alt="Қаңлы Логотипі"
                   fill
                   sizes="(max-width: 768px) 56px, 64px"
@@ -175,13 +175,17 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 relative bg-white rounded-full p-1">
+                <div className="w-12 h-12 relative flex items-center justify-center">
                   <Image
-                    src="/images/logo.jpg"
+                    src="/images/logo.png"
                     alt="Логотип"
                     fill
                     sizes="48px"
-                    className="object-contain"
+                    style={{
+                      clipPath:
+                        "polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%)",
+                    }}
+                    className="object-cover scale-125"
                   />
                 </div>
                 <h3 className="text-white font-bold text-xl uppercase">

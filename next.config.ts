@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
+
   // ngrok арқылы кіруге рұқсат береміз (жаңа қосылған жол)
   allowedDevOrigins: ['peaselike-delcie-unprecedential.ngrok-free.dev'],
 
